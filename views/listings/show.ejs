@@ -83,7 +83,7 @@
               <div class="row row-cols-md-8 row-cols-sm-5">
                 <% for(review of listing.reviews) {%>
                   <div class="card col-md-12 col-sm-12 col-lg-12 ms-3 mb-3">
-                    <div class="card-body">
+                    <div class="card-body mb-2">
                       <div class="card-title">@<%= review.author.username %>
                       </div>
                       <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
@@ -91,10 +91,12 @@
                         <%= review.comment %>
                       </p>
 
-                      <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
-                        method="post">
-                        <button class="btn btn-sm btn-dark mb-2">Delete</button>
-                      </form>
+                      <% if(currUser && currUser._id.equals(review.author._id)) { %>
+                        <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
+                          method="post">
+                          <button class="btn btn-sm btn-dark mb-2">Delete</button>
+                        </form>
+                      <% } %>
 
                     </div>
                   </div>
