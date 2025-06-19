@@ -55,6 +55,6 @@ OverTheSeas is a full-stack web application inspired by Airbnb. It allows users 
 Clone the repo:
 
 ```bash
-git clone https://github.com/yourusername/OverTheSeas.git
+git clone https://github.com/vadhiyashivam26/OverTheSeas.git
 cd OverTheSeas
 npm install

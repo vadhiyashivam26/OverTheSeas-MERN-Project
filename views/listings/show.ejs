@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 
   <div class="row">
-    <div class="col-7 offset-3 mb-3 mt-3">
+    <div class="col-6 offset-3 mb-3 mt-3">
       <h3>
         <%= listing.title %>
       </h3>
@@ -80,12 +80,11 @@
             <% if (listing.reviews.length > 0) { %>
               <p><B>All Reviews</B></p>
 
-              <div class="row row-cols-md-8 row-cols-sm-5">
+              <div class="row">
                 <% for(review of listing.reviews) {%>
-                  <div class="card col-md-12 col-sm-12 col-lg-12 ms-3 mb-3">
+                  <div class="card ms-3 mb-3">
                     <div class="card-body mb-2">
-                      <div class="card-title">@<%= review.author.username %>
-                      </div>
+                      <div>@<%= review.author.username %></div>
                       <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
                       <p class="card-text">
                         <%= review.comment %>

@@ -1,124 +1,88 @@
 <% layout("/layouts/boilerplate") %>
-    <style>
-        #filters {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-        }
 
-        .filter {
-            text-align: center;
-            margin-right: 1.75rem;
-            margin-top: 2rem;
-            opacity: 0.7;
-        }
+    <div id="filterCarousel" class="carousel slide filters" data-bs-ride="carousel">
+        <div class="carousel-inner">
 
-        .filter:hover {
-            opacity: 1;
-            cursor: pointer;
-        }
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center gap-4">
+                    <div class="text-center filter">
+                        <i class="fa-solid fa-fire fa-2x"></i>
+                        <p>Trending</p>
+                    </div>
+                    <div class="text-center filter">
+                        <i class="fa-solid fa-bed fa-2x"></i>
+                        <p>Rooms</p>
+                    </div>
+                    <div class="text-center filter">
+                        <i class="fa-solid fa-mountain-city fa-2x"></i>
+                        <p>Iconic Cities</p>
+                    </div>
+                    <div class="text-center filter">
+                        <i class="fa-solid fa-mountain-sun fa-2x"></i>
+                        <p>Mountains</p>
+                    </div>
+                </div>
+            </div>
 
-        .filter p {
-            font-size: 0.8rem;
-        }
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center gap-4">
+                    <div class="text-center filter">
+                        <i class="fa-brands fa-fort-awesome fa-2x"></i>
+                        <p>Castles</p>
+                    </div>
+                    <div class="text-center filter">
+                        <i class="fa-solid fa-person-swimming fa-2x"></i>
+                        <p>Amazing Pools</p>
+                    </div>
+                    <div class="text-center filter">
+                        <i class="fa-solid fa-campground fa-2x"></i>
+                        <p>Camping</p>
+                    </div>
+                    <div class="text-center filter">
+                        <i class="fa-solid fa-tractor fa-2x"></i>
+                        <p>Farms</p>
+                    </div>
+                </div>
+            </div>
 
-        .tax-info {
-            display: none;
-        }
+            <div class="carousel-item">
+                <div class="d-flex justify-content-center gap-4">
+                    <div class="text-center filter">
+                        <i class="fa-solid fa-snowflake fa-2x"></i>
+                        <p>Arctic</p>
+                    </div>
+                    <div class="text-center filter">
+                        <i class="fa-solid fa-ship fa-2x"></i>
+                        <p>Boats</p>
+                    </div>
+                </div>
+            </div>
 
-        .tax-toggle {
-            border: 1px solid black;
-            border-radius: 1rem;
-            height: 3rem;
-            padding: 0.9rem;
-            margin-left: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .after-taxes {
-            font-weight: 500;
-            color: #1c1c1c;
-        }
-    </style>
-
-    <div id="filters">
-        <div class="filter">
-            <div>
-                <i class="fa-solid fa-fire"></i>
-                <p>Trending</p>
-            </div>
-        </div>
-        <div class="filter">
-            <div>
-                <i class="fa-solid fa-bed"></i>
-                <p>Rooms</p>
-            </div>
-        </div>
-        <div class="filter">
-            <div>
-                <i class="fa-solid fa-mountain-city"></i>
-                <p>Iconic Cities</p>
-            </div>
-        </div>
-        <div class="filter">
-            <div>
-                <i class="fa-solid fa-mountain-sun"></i>
-                <p>Mountains</p>
-            </div>
-        </div>
-        <div class="filter">
-            <div>
-                <i class="fa-brands fa-fort-awesome"></i>
-                <p>Castles</p>
-            </div>
-        </div>
-        <div class="filter">
-            <div>
-                <i class="fa-solid fa-person-swimming"></i>
-                <p>Amazing Pools</p>
-            </div>
-        </div>
-        <div class="filter">
-            <div>
-                <i class="fa-solid fa-campground"></i>
-                <p>Camping</p>
-            </div>
-        </div>
-        <div class="filter">
-            <div>
-                <i class="fa-solid fa-tractor"></i>
-                <p>Farms</p>
-            </div>
-        </div>
-        <div class="filter">
-            <div>
-                <i class="fa-solid fa-snowflake"></i>
-                <p>Arctic</p>
-            </div>
         </div>
 
-        <div class="filter">
-            <div>
-                <i class="fa-solid fa-ship"></i>
-                <p>Boats</p>
-            </div>
-        </div>
-
-        <div class="tax-toggle">
-            <div class="form-check-reverse form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
-            </div>
-        </div>
+        <!-- Controls -->
+        <button class="carousel-control-prev mb-3" type="button" data-bs-target="#filterCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next mb-3" type="button" data-bs-target="#filterCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+        </button>
 
     </div>
 
+    
+    <div class="tax-btn">
+        <div class="tax-toggle ms-auto mt-3">
+        <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+            <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+        </div>
+    </div>
+    </div>    
 
     <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 mt-3">
         <% for (let listing of allListings) { %>
-            <a href="/listings/<%= listing._id %>" class="listing-link">
+            <a href="/listings/<%= listing._id %>" class="listing-link res-div">
                 <div class="card col listing-card">
                     <img src="<%= listing.image.url%>" class="card-img-top" alt="listings-image" style="height: 17rem;">
                     <div class="card-img-overlay"></div>
@@ -136,22 +100,9 @@
                     </div>
                 </div>
             </a>
-        <%} %>
+            <%} %>
     </div>
 
     <script>
-        const taxSwitch = document.querySelector("#switchCheckDefault");
-
-        taxSwitch.addEventListener("change", () => {
-            const beforeTaxes = document.querySelectorAll(".before-taxes");
-            const afterTaxes = document.querySelectorAll(".after-taxes");
-
-            beforeTaxes.forEach(el => el.style.display = taxSwitch.checked ? "none" : "inline");
-            afterTaxes.forEach(el => el.style.display = taxSwitch.checked ? "inline" : "none");
-        });
-
-        // Initially hide after-tax prices
-        window.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll(".after-taxes").forEach(el => el.style.display = "none");
-        });
+        
     </script>
