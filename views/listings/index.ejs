@@ -70,15 +70,15 @@
 
     </div>
 
-    
+
     <div class="tax-btn">
         <div class="tax-toggle ms-auto mt-3">
-        <div class="form-check-reverse form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-            <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+            </div>
         </div>
     </div>
-    </div>    
 
     <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 mt-3">
         <% for (let listing of allListings) { %>
@@ -93,16 +93,14 @@
                             </b> <br>
                             <span class="before-taxes">&#8377;<%= listing.price.toLocaleString("en-IN") %> /
                                     Night</span>
-                            <span class="after-taxes tax-info">
-                                &#8377;<%= listing.priceWithTax.toLocaleString("en-IN") %> / Night (incl. GST)
-                            </span>
+                            <% if (listing.priceWithTax) { %>
+                                <span class="after-taxes tax-info">
+                                    &#8377;<%= listing.priceWithTax.toLocaleString("en-IN") %> / Night (incl. GST)
+                                </span>
+                            <% } %>
                         </p>
                     </div>
                 </div>
             </a>
             <%} %>
     </div>
-
-    <script>
-        
-    </script>

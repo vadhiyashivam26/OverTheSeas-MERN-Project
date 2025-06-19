@@ -10,9 +10,36 @@ module.exports.index = async (req, res) =>{
   res.render("listings/index.ejs", { allListings });
 };
 
+module.exports.searchListing = async (req, res) => {
+  const { search } = req.query;
+
+  let listings = await Listing.find({
+    $or:[
+      {title: { $regex: search, $options: "i" }},
+      { location: { $regex: search, $options: "i" } },
+      { country: { $regex: search, $options: "i" } },
+      { description: { $regex: search, $options: "i" } }
+    ]
+  });
+
+  // Add priceWithTax to each listing
+  listings = listings.map((listing) => {
+    const price = listing.price || 0;
+    const tax = 0.18 * price;
+    const listings = listing.toObject();
+    listings.priceWithTax = Math.round(price + tax);
+    return listings;
+  });
+
+  res.render("listings/index.ejs", { allListings: listings });
+};
+
+
 module.exports.renderNewForm =  (req, res) =>{
   res.render("listings/new.ejs");
 };
+
+
 
 module.exports.showListings = async (req, res) =>{
   let { id } = req.params;
@@ -24,6 +51,7 @@ module.exports.showListings = async (req, res) =>{
   // console.log(listing);
   res.render("listings/show.ejs", { listing });
 };
+
 
 module.exports.createListing = async (req, res) =>{
   let url = req.file.path;

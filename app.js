@@ -22,8 +22,7 @@ const userRouter = require("./routes/user.js");
 
 let port = 8080;
 
-// const dburl = process.env.ATLASDB_URL;
-const dburl = "mongodb://127.0.0.1:27017/wanderlust";
+const dburl = process.env.ATLASDB_URL;
 
 main()
   .then(() => {
@@ -44,22 +43,22 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(methodOverride("_method"));
 
-//mongo session (connect-mongo)
-// const store = MongoStore.create({
-//   mongoUrl: dburl,
-//   crypto:{
-//     secret: process.env.SECRET,
-//   },
-//   touchAfter: 24 * 3600
-// })
+// mongo session (connect-mongo)
+const store = MongoStore.create({
+  mongoUrl: dburl,
+  crypto:{
+    secret: process.env.SECRET,
+  },
+  touchAfter: 24 * 3600
+})
 
-// store.on("error", () =>{
-//   console.log("ERROR in mongo session store");
-// })
+store.on("error", () =>{
+  console.log("ERROR in mongo session store");
+})
 
 //Express - session
 const sessionOptions = {
-  // store,
+  store,
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
