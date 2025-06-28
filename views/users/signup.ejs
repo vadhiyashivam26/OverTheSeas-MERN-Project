@@ -1,30 +1,50 @@
 <% layout("/layouts/boilerplate") %>
 
-<div class="row mt-3">
-    <h2 class="col-6 offset-lg-4 mb-3 signup-title">SignUp on OverTheSeas</h2>
-    <div class="col-6 offset-lg-3 mt-15">
-        <form action="/signup" method="post" novalidate class="needs-validation">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" name="username" id="username" class="form-control" placeholder="Enter Username" required>
-                
-                <div class="invalid-feedback">Please Enter Username</div>
-            </div>
+<div class="container">
+  <div class="row justify-content-center mt-4">
+    <div class="col-lg-6 col-md-8 col-sm-10 col-12 px-4">
+      <h2 class="text-center mb-4">Sign Up on OverTheSeas</h2>
+      <form action="/signup" method="post" novalidate class="needs-validation">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="form-control"
+            placeholder="Enter Username"
+            required
+          />
+          <div class="invalid-feedback">Please Enter Username</div>
+        </div>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email" required>
-            </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter Email"
+            required
+          />
+        </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" id="password" class="form-control" 
-                placeholder="Enter a Strong Password" required>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="form-control"
+            placeholder="Enter a Strong Password"
+            required
+          />
+          <div class="invalid-feedback">Please Enter Strong Password</div>
+        </div>
 
-                <div class="invalid-feedback">Please Enter Strong Password</div>
-            </div>
-            
-            <button class="btn btn-dark">Sign Up</button>
-        </form>
+        <button class="btn btn-dark">Sign Up</button>
+      </form>
     </div>
+  </div>
 </div>

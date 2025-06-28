@@ -1,14 +1,15 @@
 <% layout("/layouts/boilerplate") %>
 
   <div class="row">
-    <div class="col-6 offset-3 mb-3 mt-3">
+    <div class="col-lg-8 col-md-10 col-sm-12 mx-auto px-3">
       <h3>
         <%= listing.title %>
       </h3>
     </div>
 
-    <div class="card col-6 offset-3 listing-card show-card ">
-      <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing_image">
+      <div class="col-lg-8 col-md-10 col-sm-12 mx-auto px-3 card listing-card show-card">
+      <img src="<%= listing.image.url %>" class="img-fluid rounded" alt="listing_image">
+
       <div class="card-body">
         <p class="card-text mt-3">
           Owned by 
@@ -32,9 +33,9 @@
     <br>
 
     <% if(currUser && currUser._id.equals(listing.owner._id)) {%>
-      <div class="btns">
+      <div class="btns col-lg-8 col-md-10 col-sm-12 mx-auto px-3">
         <a href="/listings/<%= listing._id %>/edit"
-          class="btn btn-dark edit-btn col-lg-1 col-md-2 col-sm-2 offset-3">Edit</a>
+          class="btn btn-dark edit-btn">Edit</a>
 
         <form action="/listings/<%= listing._id %>?_method=DELETE" method="post">
           <button class="btn btn-dark del-btn offset-5">Delete</button>
@@ -42,7 +43,7 @@
       </div>
       <% } %>
 
-        <div class="col-6 offset-3 mb-3">
+        <div class="col-lg-8 col-md-10 col-sm-12 mx-auto px-3">
           <hr>
           <% if(currUser) {%>
             <h4>Leave a Review</h4>
@@ -80,9 +81,11 @@
             <% if (listing.reviews.length > 0) { %>
               <p><B>All Reviews</B></p>
 
-              <div class="row">
+              <!-- <div class="row"> -->
+                <div class="col-lg-8 col-md-10 col-sm-12 mx-auto px-3">
+
                 <% for(review of listing.reviews) {%>
-                  <div class="card ms-3 mb-3">
+                  <div class="card ms-3 mb-3 p-2">
                     <div class="card-body mb-2">
                       <div>@<%= review.author.username %></div>
                       <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>

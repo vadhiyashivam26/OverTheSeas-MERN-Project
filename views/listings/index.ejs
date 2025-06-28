@@ -74,11 +74,13 @@
         </div>
     </div>
 
-    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 mt-3">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-3">
+
         <% for (let listing of allListings) { %>
+            <div class="col mb-4">
             <a href="/listings/<%= listing._id %>" class="listing-link res-div">
-                <div class="card col listing-card">
-                    <img src="<%= listing.image.url%>" class="card-img-top" alt="listings-image" style="height: 17rem;">
+                <div class="card h-100 listing-card">
+                    <img src="<%= listing.image.url%>" class="card-img-top uniform-img" alt="listings-image">
                     <div class="card-img-overlay"></div>
                     <div class="card-body">
                         <p class="card-text">
@@ -96,5 +98,6 @@
                     </div>
                 </div>
             </a>
-            <%} %>
+        </div>  
+        <%} %>
     </div>

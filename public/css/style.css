@@ -123,6 +123,13 @@ body {
 }
 
 /* index page carousel */
+.uniform-img {
+  height: 17rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  border-radius: 1rem !important;
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -175,14 +182,21 @@ body {
 
 @media (max-width: 576px) {
   .filter i {
-    font-size: 1.25rem;
+    font-size: 1rem;
     width: 1rem !important;
+    margin-right: 1rem !important;
   }
   .filter p {
     font-size: 0.75rem;
     display: flex;
     justify-content: center;
     width: 1rem !important;
+  }
+  .filter{
+    opacity: 0.7;
+  }
+  .filter:hover{
+    opacity: 1;
   }
   .carousel-control-prev,
   .carousel-control-next {
@@ -195,3 +209,60 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .col-lg-8.col-md-10.col-sm-12 {
+    padding: 0 1rem;
+  }
+
+  .listing-card img {
+    height: auto !important;
+  }
+
+  .btns {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .edit-btn, .del-btn {
+    width: 100%;
+  }
+
+  .tax-toggle {
+    width: 100%;
+    margin: 1rem auto;
+    font-size: 0.8rem;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .filter{
+    opacity: 0.7;
+    margin-right: 0 !important;
+  }
+  .filter:hover{
+    opacity: 1;
+  }
+  .card-img-top {
+    height: auto !important;
+  }
+
+  .show-img {
+    height: 10rem !important;
+    max-width: 100%;
+  }
+  .search-input{
+    width: 80% !important;
+    font-size: 0.75rem !important;
+    padding: 0.5rem !important;
+  }
+  .search-btn{
+    padding: 0 !important;
+    font-size: 0.70rem !important;
+    width: 30% !important;
+  }
+  
+}
